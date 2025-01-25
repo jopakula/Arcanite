@@ -1,4 +1,4 @@
-package com.example.uikit.common
+package com.example.arcanite.uikit.common
 
 import androidx.compose.ui.graphics.Color
 

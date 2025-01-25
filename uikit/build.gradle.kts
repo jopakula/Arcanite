@@ -10,7 +10,6 @@ android {
 
     defaultConfig {
         minSdk = 26
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -38,17 +37,15 @@ android {
 
 dependencies {
 
-    // koin
-    implementation(libs.koin.core)
+    // coil
+    implementation(libs.coil.compose)
 
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.ui.graphics.android)
-    implementation(libs.androidx.foundation.android)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3.android)
 }

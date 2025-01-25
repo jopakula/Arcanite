@@ -1,4 +1,4 @@
-package com.example.uikit.helpfulFunctions
+package com.example.arcanite.uikit.helpfulFunctions
 
 import android.app.Activity
 import android.content.Context

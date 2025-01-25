@@ -9,8 +9,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.arcanite.navigation.Navigation
 import com.example.arcanite.navigation.Screens
 import com.example.arcanite.ui.theme.ArcaniteTheme
-import com.example.uikit.helpfulFunctions.ChangeNavigationBarColor
-import com.example.uikit.helpfulFunctions.ChangeStatusBarColor
+import com.example.arcanite.uikit.helpfulFunctions.ChangeNavigationBarColor
+import com.example.arcanite.uikit.helpfulFunctions.ChangeStatusBarColor
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

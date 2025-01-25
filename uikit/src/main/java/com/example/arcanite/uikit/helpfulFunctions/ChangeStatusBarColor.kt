@@ -1,4 +1,4 @@
-package com.example.uikit.helpfulFunctions
+package com.example.arcanite.uikit.helpfulFunctions
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
