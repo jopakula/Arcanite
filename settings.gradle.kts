@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Arcanite"
 include(":app")
+include(":data")
+include(":uikit")
+include(":domain")
