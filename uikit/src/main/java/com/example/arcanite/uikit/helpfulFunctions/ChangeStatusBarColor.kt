@@ -9,13 +9,13 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 @Composable
-fun ChangeStatusBarColor(color: Color) {
+fun ChangeStatusBarColor(color: Color, isChangeIconColor: Boolean = false) {
     val view = LocalView.current
     val isDarkTheme = isSystemInDarkTheme()
     SideEffect {
         val window = view.context.findActivity().window
         window.statusBarColor = color.toArgb()
         WindowCompat.getInsetsController(window, view)
-            .isAppearanceLightStatusBars = !isDarkTheme
+            .isAppearanceLightStatusBars = if (isChangeIconColor) isDarkTheme else !isDarkTheme
     }
 }

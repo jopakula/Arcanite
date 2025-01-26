@@ -3,39 +3,52 @@ package com.example.arcanite.ui.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.arcanite.uikit.cards.UserCard
+import com.example.arcanite.uikit.helpfulFunctions.ChangeStatusBarColor
+import com.example.arcanite.uikit.inputField.MyInputField
 
 @Composable
 fun MainScreen(
     navigationController: NavHostController,
 ) {
-
+    ChangeStatusBarColor(color = MaterialTheme.colorScheme.onBackground, isChangeIconColor = true)
+    var query by remember { mutableStateOf("") }
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.background),
-        verticalArrangement = Arrangement.Center,
+            .background(color = MaterialTheme.colorScheme.background)
+            .systemBarsPadding(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = "Main",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onBackground
-        )
+        Row(
+            modifier = Modifier
+                .background(color = MaterialTheme.colorScheme.onBackground)
+                .fillMaxWidth()
+                .padding(start = 12.dp, end = 12.dp, bottom = 8.dp, top = 16.dp)
+
+        ) {
+            MyInputField(
+                text = query,
+                onValueChange = { query = it },
+            )
+        }
         Column(
             modifier = Modifier
                 .padding(16.dp),

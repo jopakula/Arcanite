@@ -3,6 +3,7 @@ package com.example.arcanite.uikit.cards
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,12 +42,19 @@ fun UserCard(
     onClick: () -> Unit = {},
 ) {
     val interactionSource = remember { MutableInteractionSource() }
+    val shadowColor = if (isSystemInDarkTheme()) {
+        Color(0xFFFFFFFF)
+    } else {
+        Color(0xFF000000)
+    }
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .shadow(
                 elevation = shadowElevation,
                 shape = RoundedCornerShape(roundingSize),
+                ambientColor = shadowColor,
+                spotColor = shadowColor,
             )
             .background(color = MaterialTheme.colorScheme.background)
             .clickable(
@@ -91,7 +100,6 @@ fun UserCard(
                 tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5F)
             )
         }
-
     }
 }
 
