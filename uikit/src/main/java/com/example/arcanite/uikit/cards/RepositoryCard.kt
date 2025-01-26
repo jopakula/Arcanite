@@ -43,6 +43,8 @@ import com.example.uikit.R
 
 @Composable
 fun RepositoryCard(
+    icon: String = "",
+    cardText: String = "",
     cardNameText: String = "",
     createdText: String = "",
     updatedText: String = "",
@@ -53,6 +55,7 @@ fun RepositoryCard(
     shadowElevation: Dp = 8.dp,
     roundingSize: Dp = 8.dp,
     onClick: () -> Unit = {},
+    onUserCardClick: () -> Unit = {},
     onMoreTextClick: () -> Unit = {},
 ) {
     var expanded by rememberSaveable { mutableStateOf(false) }
@@ -144,9 +147,16 @@ fun RepositoryCard(
             exit = shrinkVertically()
         ) {
             Column(
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
+                UserCard(
+                    icon = icon,
+                    cardText = cardText,
+                    onClick = onUserCardClick,
+                    showShadow = false,
+                    colorBG = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.05F)
+                )
                 RepositoryTextItem(
                     type = Type.Created,
                     text = createdText

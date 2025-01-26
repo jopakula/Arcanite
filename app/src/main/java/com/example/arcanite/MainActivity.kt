@@ -18,8 +18,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ArcaniteTheme {
-                ChangeNavigationBarColor(color = MaterialTheme.colorScheme.background)
-                ChangeStatusBarColor(color = MaterialTheme.colorScheme.background)
+                ChangeNavigationBarColor(color = MaterialTheme.colorScheme.background.copy(alpha = 0.9F))
+                ChangeStatusBarColor(color = MaterialTheme.colorScheme.background.copy(alpha = 0.9F))
                 val navigationController = rememberNavController()
                 Navigation(
                     navigationController = navigationController,

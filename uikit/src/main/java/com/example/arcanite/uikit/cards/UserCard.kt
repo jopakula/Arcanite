@@ -37,8 +37,10 @@ import coil.compose.AsyncImage
 fun UserCard(
     cardText: String = "",
     icon: String = "",
+    colorBG: Color = MaterialTheme.colorScheme.background,
     shadowElevation: Dp = 8.dp,
     roundingSize: Dp = 8.dp,
+    showShadow: Boolean = true,
     onClick: () -> Unit = {},
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -47,16 +49,21 @@ fun UserCard(
     } else {
         Color(0xFF000000)
     }
+    val shadowModifier = when(showShadow){
+        true -> Modifier.shadow(
+            elevation = shadowElevation,
+            shape = RoundedCornerShape(roundingSize),
+            ambientColor = shadowColor,
+            spotColor = shadowColor,
+        )
+        else -> Modifier
+    }
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(
-                elevation = shadowElevation,
-                shape = RoundedCornerShape(roundingSize),
-                ambientColor = shadowColor,
-                spotColor = shadowColor,
-            )
-            .background(color = MaterialTheme.colorScheme.background)
+            .then(shadowModifier)
+            .clip(RoundedCornerShape(roundingSize))
+            .background(color = colorBG, shape = RoundedCornerShape(roundingSize))
             .clickable(
                 onClick = onClick,
                 interactionSource = interactionSource,

@@ -41,6 +41,13 @@ android {
 
 dependencies {
 
+    // coroutines
+    implementation(libs.jetbrains.kotlinx.coroutines.core)
+    implementation(libs.jetbrains.kotlinx.coroutines.android)
+
+    // View Model
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
     // navigation
     implementation(libs.androidx.navigation.compose)
 
