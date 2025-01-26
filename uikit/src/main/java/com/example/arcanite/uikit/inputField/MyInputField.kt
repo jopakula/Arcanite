@@ -1,5 +1,6 @@
 package com.example.arcanite.uikit.inputField
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -21,12 +22,16 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.TextStyle
@@ -46,6 +51,7 @@ fun MyInputField(
     val focusRequester = remember { FocusRequester() }
     val interactionSource = remember { MutableInteractionSource() }
     val focusManager = LocalFocusManager.current
+    var isFocused by remember { mutableStateOf(false) }
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -73,7 +79,7 @@ fun MyInputField(
                     .padding(horizontal = 8.dp),
                 imageVector = Icons.Default.Search,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5F)
+                tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.45F)
             )
             Box(modifier = Modifier.weight(1F)) {
                 if (text.isNullOrEmpty() && hint.isNotEmpty()) {
@@ -87,15 +93,16 @@ fun MyInputField(
                 BasicTextField(
                     modifier = Modifier
                         .padding(PaddingValues(start = 8.dp, end = 8.dp))
-                        .focusRequester(focusRequester),
+                        .focusRequester(focusRequester)
+                        .onFocusChanged { isFocused = it.isFocused },
                     value = text ?: "",
                     onValueChange = onValueChange,
                     maxLines = 1,
                     singleLine = true,
                     textStyle = TextStyle(
                         color = MaterialTheme.colorScheme.onBackground,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Normal
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Medium
                     ),
                     cursorBrush = SolidColor(YellowColor)
                 )
@@ -109,11 +116,11 @@ fun MyInputField(
                         .clickable { onValueChange("") },
                     imageVector = Icons.Rounded.Clear,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5F)
+                    tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.45F)
                 )
             }
         }
-        if (!text.isNullOrEmpty()) {
+        AnimatedVisibility(visible = isFocused) {
             Row(
                 modifier = Modifier
                     .padding(6.dp)
@@ -131,7 +138,6 @@ fun MyInputField(
                     fontWeight = FontWeight.SemiBold
                 )
             }
-
         }
     }
 }

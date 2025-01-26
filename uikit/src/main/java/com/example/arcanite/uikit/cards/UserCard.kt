@@ -35,7 +35,7 @@ import coil.compose.AsyncImage
 
 @Composable
 fun UserCard(
-    text: String = "",
+    cardText: String = "",
     icon: String = "",
     shadowElevation: Dp = 8.dp,
     roundingSize: Dp = 8.dp,
@@ -85,7 +85,7 @@ fun UserCard(
                     contentScale = ContentScale.Fit
                 )
                 Text(
-                    text = text,
+                    text = cardText,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onBackground,
