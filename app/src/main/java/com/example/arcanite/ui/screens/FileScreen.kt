@@ -15,7 +15,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -95,7 +94,7 @@ fun FileScreen(
         }
 
         when (val state = filesState) {
-            is RequestState.Loading -> CircularProgressIndicator()
+            is RequestState.Loading -> {}
             is RequestState.Success -> {
                 val folders = state.data.filter { it.type == "dir" }.sortedBy { it.name }
                 val files = state.data.filter { it.type != "dir" }.sortedBy { it.name }
