@@ -1,13 +1,15 @@
 package com.example.arcanite.di
 
-import com.example.arcanite.ui.viewModels.UsersViewModel
+import com.example.arcanite.ui.viewModels.CombinedSearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
+
     viewModel {
-        UsersViewModel(
-            searchUsersUseCase = get()
+        CombinedSearchViewModel(
+            searchUsersUseCase = get(),
+            searchRepositoriesUseCase = get()
         )
     }
 }

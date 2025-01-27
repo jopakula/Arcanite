@@ -1,4 +1,4 @@
-package com.example.arcanite.domain.models
+package com.example.arcanite.domain.models.user
 
 data class User(
     val login: String?,

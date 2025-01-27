@@ -1,10 +1,10 @@
 package com.example.arcanite.domain.useCases
 
 import com.example.arcanite.domain.Repository
-import com.example.arcanite.domain.models.UsersResponse
+import com.example.arcanite.domain.models.user.UsersResponse
 
 class SearchUsersUseCase(private val repository: Repository) {
-    suspend fun execute(query: String): UsersResponse{
+    suspend fun execute(query: String): UsersResponse {
         return repository.searchUsers(query = query)
     }
 }

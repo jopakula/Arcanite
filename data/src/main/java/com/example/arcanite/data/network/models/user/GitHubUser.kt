@@ -1,4 +1,4 @@
-package com.example.arcanite.data.network.models
+package com.example.arcanite.data.network.models.user
 
 import com.google.gson.annotations.SerializedName
 
