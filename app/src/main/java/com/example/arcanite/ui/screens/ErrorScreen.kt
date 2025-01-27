@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,7 +28,9 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.arcanite.R
 
 @Composable
-fun ErrorScreen() {
+fun ErrorScreen(
+    onClick: () -> Unit = {},
+) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.error))
 
     Column(
@@ -64,6 +69,26 @@ fun ErrorScreen() {
                 textAlign = TextAlign.Center,
                 fontSize = 20.sp
             )
+
+            Button(
+                modifier = Modifier.padding(top = 16.dp),
+                onClick = onClick,
+                shape = RoundedCornerShape(6.dp),
+                colors = ButtonColors(
+                    contentColor = MaterialTheme.colorScheme.onBackground,
+                    containerColor =  MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1F),
+                    disabledContentColor = MaterialTheme.colorScheme.onBackground,
+                    disabledContainerColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1F),
+                )
+            ) {
+                Text(
+                    modifier = Modifier.padding(horizontal = 12.dp),
+                    text = "Обновить",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onBackground
+                )
+            }
         }
     }
 }

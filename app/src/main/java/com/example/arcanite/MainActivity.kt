@@ -12,7 +12,7 @@ import com.example.arcanite.ui.theme.ArcaniteTheme
 import com.example.arcanite.uikit.helpfulFunctions.ChangeNavigationBarColor
 import com.example.arcanite.uikit.helpfulFunctions.ChangeStatusBarColor
 
-class MainActivity : ComponentActivity() {
+class qweMainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

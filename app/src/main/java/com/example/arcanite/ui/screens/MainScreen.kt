@@ -46,6 +46,7 @@ fun MainScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
             .systemBarsPadding()
             .pointerInput(Unit) {
                 detectTapGestures(onTap = {
@@ -99,7 +100,9 @@ fun MainScreen(
                 EmptyScreen()
             }
             is RequestState.Error -> {
-                ErrorScreen()
+                ErrorScreen(
+                    onClick = { combinedViewModel.search(query = query)}
+                )
             }
         }
     }

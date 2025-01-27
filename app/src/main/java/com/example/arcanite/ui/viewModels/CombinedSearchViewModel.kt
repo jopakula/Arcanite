@@ -44,7 +44,7 @@ class CombinedSearchViewModel(
         }
     }
 
-    private fun search(query: String) {
+    fun search(query: String) {
         if (query.isBlank()) {
             combinedStateMutable.value = RequestState.Empty
             return
