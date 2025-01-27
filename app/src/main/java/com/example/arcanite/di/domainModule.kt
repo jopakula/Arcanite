@@ -6,6 +6,7 @@ import com.example.arcanite.domain.useCases.SearchUsersUseCase
 import org.koin.dsl.module
 
 val domainModule = module {
+
     factory<SearchUsersUseCase> {
         SearchUsersUseCase(repository = get())
     }
@@ -15,4 +16,5 @@ val domainModule = module {
     factory<GetRepositoriesContentsUseCase> {
         GetRepositoriesContentsUseCase(repository = get())
     }
+
 }

@@ -8,7 +8,6 @@ import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,7 +23,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -65,7 +63,6 @@ fun RepositoryCard(
         animationSpec = tween(durationMillis = 300, easing = FastOutSlowInEasing),
         label = "iconRotation"
     )
-    val interactionSource = remember { MutableInteractionSource() }
     val shadowColor = if (isSystemInDarkTheme()) {
         Color(0xFFFFFFFF)
     } else {
@@ -84,7 +81,6 @@ fun RepositoryCard(
     ) {
         Row(
             modifier = Modifier
-//                .fillMaxWidth()
                 .padding(vertical = 8.dp, horizontal = 16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
