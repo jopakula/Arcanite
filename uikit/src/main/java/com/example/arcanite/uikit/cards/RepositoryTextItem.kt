@@ -43,14 +43,14 @@ fun RepositoryTextItem(
     ) {
         Text(
             modifier = Modifier.padding(PaddingValues(start = 6.dp)),
-            fontSize = 18.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Medium,
             text = cardName,
             color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.35F)
         )
         Text(
             modifier = Modifier.padding(PaddingValues(end = 6.dp)),
-            fontSize = 18.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Medium,
             text = text,
             color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5F)

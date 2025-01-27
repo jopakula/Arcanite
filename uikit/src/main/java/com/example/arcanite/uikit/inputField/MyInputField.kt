@@ -59,7 +59,7 @@ fun MyInputField(
     ) {
         Row(
             modifier = Modifier
-                .height(50.dp,)
+                .height(50.dp)
                 .weight(1F)
                 .clickable(
                     interactionSource = interactionSource,

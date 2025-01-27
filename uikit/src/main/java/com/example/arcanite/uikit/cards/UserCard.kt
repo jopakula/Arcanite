@@ -27,6 +27,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -79,6 +80,7 @@ fun UserCard(
         ) {
             Row(
                 modifier = Modifier
+                    .weight(1F)
                     .padding(horizontal = 8.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
@@ -94,6 +96,8 @@ fun UserCard(
                 Text(
                     text = cardText,
                     fontSize = 20.sp,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onBackground,
                 )

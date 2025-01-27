@@ -39,14 +39,14 @@ fun RepositoryIconItem(
     ) {
         Text(
             modifier = Modifier.padding(PaddingValues(start = 4.dp)),
-            fontSize = 18.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Medium,
             text = count.toString(),
             color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5F)
         )
         Icon(
             modifier = Modifier
-                .size(24.dp)
+                .size(22.dp)
                 .padding(PaddingValues(end = 4.dp)),
             painter = icon,
             contentDescription = null,

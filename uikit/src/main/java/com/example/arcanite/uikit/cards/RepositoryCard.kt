@@ -35,6 +35,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -83,16 +84,19 @@ fun RepositoryCard(
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+//                .fillMaxWidth()
                 .padding(vertical = 8.dp, horizontal = 16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 modifier = Modifier
+                    .weight(1F)
                     .clickable (onClick = onRepositoryCardClick),
                 text = cardNameText,
-                fontSize = 22.sp,
+                fontSize = 20.sp,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
                 fontWeight = FontWeight.ExtraBold,
                 color = MaterialTheme.colorScheme.onBackground,
             )
