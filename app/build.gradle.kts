@@ -41,6 +41,8 @@ android {
 
 dependencies {
 
+    // lottie
+    implementation(libs.lottie)
 
     // coroutines
     implementation(libs.jetbrains.kotlinx.coroutines.core)
