@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.arcanite.data.network.RequestState
+import com.example.arcanite.navigation.Screens
 import com.example.arcanite.ui.viewModels.CombinedSearchViewModel
 import com.example.arcanite.uikit.helpfulFunctions.ChangeStatusBarColor
 import com.example.arcanite.uikit.inputField.MyInputField
@@ -91,7 +92,16 @@ fun MainScreen(
             is RequestState.Loading -> CircularProgressIndicator()
             is RequestState.Success -> CombinedList(
                 items = (combinedState as RequestState.Success<List<SearchResultItem>>).data,
-                context = context
+                context = context,
+                onRepositoryCardClick = { repo ->
+                    navigationController.navigate(
+                        Screens.File.createRoute(
+                            owner = repo.owner?.login ?: "",
+                            repo = repo.name ?: "",
+                            path = ""
+                        )
+                    )
+                }
             )
             is RequestState.Empty -> Text("Ничего не найдено")
             is RequestState.Error -> Text(
@@ -99,6 +109,7 @@ fun MainScreen(
                 color = Color.Red
             )
         }
+
     }
 }
 

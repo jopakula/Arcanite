@@ -27,7 +27,8 @@ sealed class SearchResultItem {
 fun CombinedList(
     items: List<SearchResultItem>,
     context: Context,
-    onClick: () -> Unit = {}
+    onClick: () -> Unit = {},
+    onRepositoryCardClick: (Repository) -> Unit = {},
 ) {
     LazyColumn(
         modifier = Modifier
@@ -60,6 +61,7 @@ fun CombinedList(
                     onMoreTextClick = {},
                     cardText = item.repo.name ?: "",
                     icon = item.repo.owner?.avatarUrl ?: "",
+                    onRepositoryCardClick = { onRepositoryCardClick(item.repo)},
                     onUserCardClick = {
                         onClick()
                         openUrl(context, item.repo.owner?.htmlUrl ?: "")

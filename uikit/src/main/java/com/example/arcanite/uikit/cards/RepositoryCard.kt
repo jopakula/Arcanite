@@ -54,7 +54,7 @@ fun RepositoryCard(
     forks: Int = 0,
     shadowElevation: Dp = 8.dp,
     roundingSize: Dp = 8.dp,
-    onClick: () -> Unit = {},
+    onRepositoryCardClick: () -> Unit = {},
     onUserCardClick: () -> Unit = {},
     onMoreTextClick: () -> Unit = {},
 ) {
@@ -89,6 +89,8 @@ fun RepositoryCard(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
+                modifier = Modifier
+                    .clickable (onClick = onRepositoryCardClick),
                 text = cardNameText,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.ExtraBold,
